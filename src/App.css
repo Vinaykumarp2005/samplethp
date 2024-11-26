@@ -1,38 +1,344 @@
-.App {
-  text-align: center;
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@300..700&display=swap");
+
+.appe,
+.appe:before,
+.appe:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quicksand", sans-serif;
+}
+.appe {
+  background-color: #0d0a0b;
+  background: linear-gradient(to left, #55566a 0%, #131318 76%);
 }
 
-.App-logo {
-  height: 40vmin;
+.body1e {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr 3.6fr;
+  place-items: center;
+  min-height: 200px;
+}
+
+/* Content */
+
+.contente {
+  padding: 40px;
+  color: #c7c7c7c9;
+  user-select: none;
+  margin-bottom: 0px;
+}
+.contente h1{
+  color: rgba(238, 243, 245, 0.753);
+}
+.o{
+ color: orange;
+}
+.w{
+  color: white;
+
+}
+.g{
+  color: rgb(78, 247, 78);
+}
+.b{
+  color: rgb(74, 74, 221);
+}
+/* 
+.contente h1 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  font-weight: 700;
+  background: rgba(252, 174, 70, 0.88);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  text-align: center;
+  margin-bottom: 3px;
+  padding-right: 60px;
+} */
+
+.contente p {
+  font-size: clamp(0.9rem, 4vw, 1.2rem);
+  line-height: 1.6;
+  padding-right: 70px;
+  margin-bottom: 0%;
+}
+
+.btnne {
+  background-color:rgba(252, 173, 70, 0.88);
+  background-image: rgba(252, 174, 70, 0.88);
+  font-size: clamp(0.8rem, 8vw, 0.9rem);
+  font-weight: 600;
+  color: #ffffff;
+  width: max-content;
+  outline: 0;
+  border: 0;
+  border-radius: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  margin-top: 26px;
+  text-align: center;
+  transform: scale(1);
+  transition: all 0.2s ease-in;
+  cursor: pointer;
+  touch-action: manipulation;
+  user-select: none;
+  -webkit-user-select: none;
+  pointer-events: auto;
+}
+
+.btnne:hover {
+  box-shadow: 0 4px 10px rgba(101, 174, 247, 0.5);
+  transform: scale(0.98);
+}
+
+/* Stacked Cards */
+
+.stack {
+  position: relative;
+}
+
+.carde {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  width: 850px;
+  height: 550px;
+  border-radius: 2rem;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
+    0 15px 20px 0 rgba(0, 0, 0, 0.125);
+  transition: transform 0.6s;
+  user-select: none;
+}
+
+.carde img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  object-fit: cover;
   pointer-events: none;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.carde:nth-last-child(n + 5) {
+  --x: calc(-50% + 90px);
+  transform: translate(var(--x), -50%) scale(0.85);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
+}
+
+.carde:nth-last-child(4) {
+  --x: calc(-50% + 60px);
+  transform: translate(var(--x), -50%) scale(0.9);
+}
+
+.carde:nth-last-child(3) {
+  --x: calc(-50% + 30px);
+  transform: translate(var(--x), -50%) scale(0.95);
+}
+
+.carde:nth-last-child(2) {
+  --x: calc(-50%);
+  transform: translate(var(--x), -50%) scale(1);
+}
+
+.carde:nth-last-child(1) {
+  --x: calc(-50% - 30px);
+  transform: translate(var(--x), -50%) scale(1.05);
+}
+
+.carde:nth-last-child(1) img {
+  box-shadow: 0 1px 5px 5px rgba(255, 193, 111, 0.5);
+}
+
+.swap {
+  animation: swap 1.3s ease-out forwards;
+}
+
+@keyframes swap {
+  30% {
+    transform: translate(calc(var(--x) - 250px), -50%) scale(0.85) rotate(-5deg)
+      rotateY(65deg);
+  }
+  100% {
+    transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+    z-index: -1;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Media queries for keyframes */
+
+@media (max-width: 1200px) {
+  @keyframes swap {
+    30% {
+      transform: translate(calc(var(--x) - 200px), -50%) scale(0.85)
+        rotate(-5deg) rotateY(65deg);
+    }
+
+    100% {
+      transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+      z-index: -1;
+    }
+  }
+}
+
+@media (max-width: 1050px) {
+  @keyframes swap {
+    30% {
+      transform: translate(calc(var(--x) - 150px), -50%) scale(0.85)
+        rotate(-5deg) rotateY(65deg);
+    }
+
+    100% {
+      transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+      z-index: -1;
+    }
+  }
+}
+
+/* Media queries for other classes */
+
+@media (max-width: 1200px) {
+  .contente {
+    padding-left: 80px;
+  }
+
+  .contente p {
+    padding-right: 40px;
+  }
+
+  .carde {
+    width: 650px;
+    height: 400px;
+  }
+}
+
+@media (max-width: 1050px) {
+  .contente {
+    padding-left: 60px;
+  }
+
+  .contente p {
+    line-height: 1.5;
+  }
+
+  .carde {
+    width: 500px;
+    height: 320px;
+  }
+}
+
+@media (max-width: 990px) {
+  .contente p {
+    padding-right: 0;
+  }
+
+  .carde {
+    width: 400px;
+    height: 250px;
+  }
+}
+
+@media (max-width: 950px) {
+  .body1e {
+    grid-template-columns: 1fr;
+    grid-template-rows: 4fr 3fr;
+    grid-template-areas:
+      "stacked"
+      "content";
+  }
+
+  .contente {
+    grid-area: content;
+    text-align: center;
+    padding: 0 90px;
+  }
+
+  .btnne {
+    margin-bottom: 30px;
+  }
+
+  .stack {
+    grid-area: stacked;
+  }
+}
+
+@media (max-width: 650px) {
+  .body1e {
+    grid-template-rows: 1fr 1fr;
+  }
+
+  .contente {
+    padding: 0 50px;
+  }
+
+  .contente h1 {
+    padding-left: 0;
+  }
+
+  .btnne {
+    padding: 8px 16px;
+  }
+
+  .carde {
+    width: 320px;
+    height: 200px;
+  }
+}
+
+
+
+/* Center images and ensure uniform dimensions */
+.card1-img-container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
+  height: 200px; /* Set a fixed height for the image container */
+  overflow: hidden; /* Prevent images from overflowing */
+  background-color: #f8f9fa; /* Optional: Add a light background color */
+  border-radius: 8px;
 }
 
-.App-link {
-  color: #61dafb;
+.card1-img {
+  max-width: 380px;
+  max-height: 450px;
+  object-fit: contain; /* Ensure the image fits within the container */
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Ensure all cards have consistent dimensions */
+.card1 {
+  max-width: 400px; /* Set a maximum width */
+  max-height: 600px;
+  margin: auto;
+  border: 1px solid #ddd; /* Add a light border */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
+}
+
+/* Add hover effects for cards */
+.card1-animation:hover {
+  transform: scale(1.05); /* Slightly enlarge the card on hover */
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2); /* Add a stronger shadow */
+}
+
+/* Styling for card body */
+.card1-body {
+  text-align: center; /* Center-align text */
+  padding: 10px;
+}
+
+/* Styling for the button */
+.btn.bt {
+  font-size: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth button animations */
+}
+
+.btn.bt:hover {
+  background-color: #6c757d; /* Darken on hover */
+  color: #fff;
 }

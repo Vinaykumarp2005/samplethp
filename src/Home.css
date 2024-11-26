@@ -1,0 +1,17 @@
+.comp{
+    height: 80px;
+}
+.company{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color:#ffffff;
+  }
+.btns{
+    margin-top: 550px;
+    margin-left: 300px;
+    padding: 10px;
+    padding-left: 18px;
+    padding-right: 18px;
+}
